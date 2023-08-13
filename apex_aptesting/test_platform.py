@@ -1,0 +1,3 @@
+def test_server_startup():
+    # Smoke test
+    ...

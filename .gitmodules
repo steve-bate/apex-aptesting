@@ -1,0 +1,3 @@
+[submodule "submodules/apex"]
+	path = submodules/apex
+	url = https://github.com/immers-space/activitypub-express.git

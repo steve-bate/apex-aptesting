@@ -1,0 +1,182 @@
+[server.capabilities]
+# C2S
+c2s.default = true
+# c2s.outbox.default = false
+# c2s.outbox.get = false
+# c2s.outbox.post = false
+# c2s.outbox.post.Create = false
+# c2s.outbox.post.Update = false
+# c2s.outbox.post.Delete = false
+# c2s.outbox.post.Follow = false
+c2s.outbox.post.Add = false
+c2s.outbox.post.Remove = false
+# c2s.outbox.post.Like = false
+# c2s.outbox.post.Block = false
+# c2s.outbox.post.Undo = false
+
+# S2S
+s2s.default = true
+# s2s.inbox.default = false
+# s2s.inbox.get = false
+# s2s.inbox.post = false
+# s2s.inbox.post.Create = false
+# s2s.inbox.post.Update = false
+# s2s.inbox.post.Delete = false
+# s2s.inbox.post.Follow = false
+# s2s.inbox.post.Accept = false
+# s2s.inbox.post.Reject = false
+# s2s.inbox.post.Add = false
+# s2s.inbox.post.Remove = false
+# s2s.inbox.post.Like = false
+# s2s.inbox.post.Announce = false
+# s2s.inbox.post.Undo = false
+# s2s.inbox.shared = false
+
+# Collections support - both spec'ed and custom
+# collections.default = false
+collections.custom = false
+
+# Other AP featuress
+tombstones = true
+# Some AP servers don't support standard audience processing
+audience = false
+
+# Other non-AP features
+webfinger = true
+nodeinfo = false
+x-nodeinfo2 = false
+host-meta = false
+portable_contacts = false # poco
+robots_txt = false
+
+# [test_remote_dereference]
+# skip = "500 server error"
+# bug = true
+
+# [test_activity_with_multiple_actors]
+# skip = "Not supported. 500 server error."
+
+# [test_activity_with_multiple_objects]
+# skip = "Not supported. 500 server error."
+
+# [test_get_inbox_nonauth_filtered]
+# skip = "500 server error. Needs review."
+
+# [test_actor_blocking]
+# skip = "500 server error. Needs review."
+
+[test_nonowner_outbox_post_disallowed]
+# Apex seems to want to hide error codes
+status_code = 201
+
+[test_outbox_authentication]
+# Apex seems to want to hide error codes
+status_code = 201
+
+[test_outbox_partial_update]
+skip = true
+skip_reason = "Only merges. Does not remove properties."
+bug = true
+
+[test_inbox_like_local]
+skip = true
+skip_reason = "Can only like activity"
+# We might be able to make this a configurable aspect of the tests.
+# However, it's clear from the specs that it should be ok to like objects
+bug = true
+
+[test_outbox_like_local]
+skip = true
+skip_reason = "Can only like activity"
+# We might be able to make this a configurable aspect of the tests.
+# However, it's clear from the specs that it should be ok to like objects
+bug = true
+
+[test_inbox_undo_like]
+skip = true
+skip_reason = "Can only like activity"
+# We might be able to make this a configurable aspect of the tests.
+# However, it's clear from the specs that it should be ok to like objects
+bug = true
+
+[test_inbox_undo_follow]
+skip = true
+skip_reason = "Sends a Create/Accept instead of Accept for Follow"
+# This seems wrong, but it might need more discussion?
+bug = true
+
+[test_outbox_undo_like]
+skip = true
+skip_reason = "Sends a Create/Accept instead of Accept for Follow"
+# This seems wrong, but it might need more discussion?
+bug = true
+
+[test_outbox_create_merges_recipients]
+skip = true
+skip_reason = "'to' not merged"
+bug = true
+
+[test_inbox_accept_deduplicate]
+skip = true
+skip_reason = "Requires 'actor' in object"
+# arguable, but this seems wrong
+# Another option is to copy the activity actor to object
+# I think it should be copied to attributedTo, if not specified
+bug = true
+
+[test_outbox_requires_object_for_certain_activities.Like-with_object]
+skip = true
+skip_reason = "Can only like activity"
+# We might be able to make this a configurable aspect of the tests.
+# However, it's clear from the specs that it should be ok to like objects
+bug = true
+
+[test_get_public_object_allowed.to-Public-str]
+skip = true
+skip_reason = "Public is not handled properly"
+bug = true
+
+[test_get_public_object_allowed.cc-Public-str]
+skip = true
+skip_reason = "Public is not handled properly"
+bug = true
+
+[test_get_public_object_allowed.bto-Public-str]
+skip = true
+skip_reason = "Public is not handled properly"
+bug = true
+
+[test_get_public_object_allowed.bcc-Public-str]
+skip = true
+skip_reason = "Public is not handled properly"
+bug = true
+
+[test_get_public_object_allowed.audience-Public-str]
+skip = true
+skip_reason = "Public is not handled properly (audience either?)"
+bug = true
+
+[test_get_public_object_allowed.to-Public-list]
+skip = true
+skip_reason = "Public is not handled properly"
+bug = true
+
+[test_get_public_object_allowed.cc-Public-list]
+skip = true
+skip_reason = "Public is not handled properly"
+bug = true
+
+[test_get_public_object_allowed.bto-Public-list]
+skip = true
+skip_reason = "Public is not handled properly"
+bug = true
+
+[test_get_public_object_allowed.bcc-Public-list]
+skip = true
+skip_reason = "Public is not handled properly"
+bug = true
+
+[test_get_public_object_allowed.audience-Public-list]
+skip = true
+skip_reason = "Public is not handled properly (audience either?)"
+bug = true
