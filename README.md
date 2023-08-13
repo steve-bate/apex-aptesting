@@ -2,7 +2,7 @@
 
 Experimental extension of the [activitypub-testsuite](https://github.com/steve-bate/activitypub-testsuite) for testing [activitypub-express](https://github.com/immers-space/activitypub-express).
 
-This repository contains activitypub-express test support code and configuration.
+This repository contains activitypub-express test support code and configuration. The `activitypub-express` software is a library for building AP servers. For testing, the library is used to create a small AP server with some test control endpoints and additional diagnostic output. It also installs a custom in-memory `IApexStore` implementation instead of using the MongoDB store. The test server code is in the `apex_aptesting/app` subdirectory.
 
 ## Install
 
