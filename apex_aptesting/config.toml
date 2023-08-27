@@ -49,21 +49,25 @@ host-meta = false
 portable_contacts = false # poco
 robots_txt = false
 
-# [test_remote_dereference]
-# skip = "500 server error"
-# bug = true
+[test_multityped_activity_is_delivered]
+skip = "500 Internal Server Error"
+bug = true
 
-# [test_activity_with_multiple_actors]
-# skip = "Not supported. 500 server error."
+[test_empty_array_is_omitted_or_null]
+skip = "Empty array is in collection page."
+bug = true
 
-# [test_activity_with_multiple_objects]
-# skip = "Not supported. 500 server error."
+[test_assumes_default_context]
+skip = "400 Bad Request"
+bug = true
 
-# [test_get_inbox_nonauth_filtered]
-# skip = "500 server error. Needs review."
+[test_map_iris]
+skip = "Does not map `url` property IRI"
+bug = true
 
-# [test_actor_blocking]
-# skip = "500 server error. Needs review."
+[test_dont_map_iris_for_ids]
+skip = "Appears to be an issue in the request processing library"
+bug = true
 
 [test_nonowner_outbox_post_disallowed]
 # Apex seems to want to hide error codes
