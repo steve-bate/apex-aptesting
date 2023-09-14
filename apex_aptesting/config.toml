@@ -49,8 +49,12 @@ host-meta = false
 portable_contacts = false # poco
 robots_txt = false
 
-[test_multityped_activity_is_delivered]
-skip = "500 Internal Server Error"
+[test_multityped_activity_is_delivered_to_inbox]
+xfail = "500 Internal Server Error"
+bug = true
+
+[test_multityped_activity_is_delivered_to_outbox]
+xfail = "500 Internal Server Error"
 bug = true
 
 [test_empty_array_is_omitted_or_null]
