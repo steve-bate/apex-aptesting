@@ -188,3 +188,6 @@ bug = true
 skip = true
 skip_reason = "Public is not handled properly (audience either?)"
 bug = true
+
+[test_actor_blocking]
+status_code = 200
